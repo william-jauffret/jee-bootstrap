@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import jeudame.ColorChip;
 import jeudame.JeuDameGame;
+import jeudame.JeuDameImpl;
 
 public class JeuDameTest {
 
