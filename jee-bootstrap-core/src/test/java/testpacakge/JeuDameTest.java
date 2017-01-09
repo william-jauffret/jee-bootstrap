@@ -6,9 +6,11 @@ import static org.assertj.core.api.Fail.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import jeudame.JeuDameGame;
+
 public class JeuDameTest {
 
-	private JeuDame game;
+	private JeuDameGame game;
 
     @Before
     public void doBefore() throws Exception {
