@@ -21,17 +21,18 @@ public interface JeuDameGame {
     ColorChip getCell(int abs, int ord);
 
     /**
-     * Returns the number of columns.
+     * Returns the number of abscisse.
      * @return
      */
     int getAbs();
 
     /**
-     * Returns the number of rows.
+     * Returns the number of Ordonne.
      * @return
      */
     int getOrd();
 
+    
     /**
      * Returns the colour of the winner, null if no winner.
      * @return
