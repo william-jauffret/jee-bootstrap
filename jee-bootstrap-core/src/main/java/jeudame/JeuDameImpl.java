@@ -30,19 +30,21 @@ public class JeuDameImpl implements JeuDameGame {
     }
 	
 	@Override
-	public void play(Pion pion,ColorChip colour, int abs, int ord) throws GameException {
+	public void play(Pion pion,Direction direction) throws GameException {
 		// TODO Auto-generated method stub
+		// Here we have to define the play function 
 		
 	}
 
 	@Override
 	public ColorChip getCell(int abs, int ord) {
 		// TODO Auto-generated method stub
-		if (abs < 0 || ord >= getAbs()) {
+		/*if (abs < 0 || ord >= getAbs()) {
             return null;
         }
         List<ColorChip> column = board.get(abs);
-        return ord < column.size() && ord >= 0 ? column.get(ord) : null;
+        return ord < column.size() && ord >= 0 ? column.get(ord) : null;*/
+		return board.get(abs).get(ord);
 		
 	}
 
