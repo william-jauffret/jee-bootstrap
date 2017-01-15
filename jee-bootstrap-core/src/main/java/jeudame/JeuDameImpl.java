@@ -7,8 +7,8 @@ import java.util.List;
 
 
 public class JeuDameImpl implements JeuDameGame {
-	public static final int COLUMNS_NUMBER = 8;
-    public static final int ROWS_NUMBER = 8;
+	public static final int COLUMNS_NUMBER = 10;
+    public static final int ROWS_NUMBER = 10;
     public static final String OUTSIDE_OF_BOARD_ERROR = "It is not possible to play outside of the board";
     
     List<List<ColorChip>> board = new ArrayList<>(COLUMNS_NUMBER);
@@ -22,6 +22,7 @@ public class JeuDameImpl implements JeuDameGame {
 
         for (int i = 0; i < COLUMNS_NUMBER; i++) {
             board.add(new ArrayList<ColorChip>(ROWS_NUMBER));
+            
         }
     }
 	
