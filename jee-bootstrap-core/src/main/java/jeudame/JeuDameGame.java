@@ -19,6 +19,14 @@ public interface JeuDameGame {
      * @param row
      * @return
      */
+    
+    void eatChip(Pion pion, Direction direction) throws GameException;
+    
+    int newOrd(int ord, Direction direction);
+    int newAbs(int abs, Direction direction);
+    boolean eatMoreThanOnce(int abs, int ord, ColorChip color);
+    void showBoardState();
+    
     ColorChip getCell(int abs, int ord);
 
     /**
@@ -35,8 +43,10 @@ public interface JeuDameGame {
 
     
     /**
-     * Returns the colour of the winner, null if no winner.
+     * Returns the color of the winner, null if no winner.
      * @return
      */
     ColorChip getWinner();
+    
+    ColorChip nextPlayer(ColorChip player) throws GameException;
 }

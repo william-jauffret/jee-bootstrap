@@ -1,5 +1,5 @@
 package jeudame;
 
 public enum ColorChip {
-	    WHITE, BLACK	
+	    WHITE, BLACK, NONE	
 }
