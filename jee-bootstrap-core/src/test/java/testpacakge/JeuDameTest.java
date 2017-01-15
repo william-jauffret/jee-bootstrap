@@ -7,8 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import jeudame.ColorChip;
+import jeudame.Direction;
 import jeudame.JeuDameGame;
 import jeudame.JeuDameImpl;
+import jeudame.Pion;
 
 public class JeuDameTest {
 
@@ -21,18 +23,18 @@ public class JeuDameTest {
     
     @Test 
     public void getRightCase() throws Exception{
-    	game.play(ColorChip.BLACK, 0, 0);
+    	//game.play(ColorChip.BLACK, 0, 0);
     	assertThat(game.getCell(0, 0)).isEqualTo(ColorChip.BLACK);
     }
 
     @Test
     public void aPlayerMayEatChip() throws Exception {
-        game.play(ColorChip.WHITE, 3, 1);
-        game.play(ColorChip.BLACK, abs, ord);
-        assertThat(game.getCell(3, 0)).isEqualTo(RED);
+        game.play(new Pion(),Direction.AvLEFT);
+        game.play(new Pion(), Direction.AvRIGHT);
+        assertThat(game.getCell(3, 0)).isEqualTo(ColorChip.BLACK);
 
-        game.play(RED, 3);
-        assertThat(game.getCell(3, 1)).isEqualTo(RED);
+        //game.play(ColorChip.BLACK, 3);
+        assertThat(game.getCell(3, 1)).isEqualTo(ColorChip.BLACK);
 
         assertThat(game.getCell(3, 2)).isNull();
         assertThat(game.getCell(4, 5)).isNull();

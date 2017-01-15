@@ -8,8 +8,9 @@ public interface JeuDameGame {
 	 * @param colour
 	 * @param column
 	 * @throws GameException if it is not allowed to play in that cell.
+	 * if direction = 0 => right , 2 => left 
 	 */
-    void play(ColorChip colour, int abs, int ord) throws GameException;
+    void play(Pion pion,Direction direction) throws GameException;
 
     /**
      * Returns the colour of the chip in a given cell, null if no
