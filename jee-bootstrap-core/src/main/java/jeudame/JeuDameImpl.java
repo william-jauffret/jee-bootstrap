@@ -20,7 +20,7 @@ public class JeuDameImpl implements JeuDameGame {
     List<List<ColorChip>> board = new ArrayList<>(BOARD_SIZE);
 
 	
-	public  JeuDameImpl() {
+	public JeuDameImpl() {
 		// TODO Auto-generated constructor stub
 		initBoard();
 	}
