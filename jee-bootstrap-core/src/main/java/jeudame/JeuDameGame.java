@@ -10,7 +10,7 @@ public interface JeuDameGame {
 	 * @throws GameException if it is not allowed to play in that cell.
 	 * if direction = 0 => right , 2 => left 
 	 */
-    void play(Pion pion,Direction direction) throws GameException;
+	void play(int abs, int ord, String direction) throws GameException;
 
     /**
      * Returns the colour of the chip in a given cell, null if no
@@ -20,9 +20,9 @@ public interface JeuDameGame {
      * @return
      */
     
-    void eatChip(Pion pion, Direction direction) throws GameException;
-    
-    int newOrd(int ord, Direction direction);
+    void eatChip(int ord, int abs, Direction direction, ColorChip player) throws GameException;
+
+	int newOrd(int ord, Direction direction, ColorChip player);
     int newAbs(int abs, Direction direction);
     boolean eatMoreThanOnce(int abs, int ord, ColorChip color);
     void showBoardState();
@@ -49,4 +49,12 @@ public interface JeuDameGame {
     ColorChip getWinner();
     
     ColorChip nextPlayer(ColorChip player) throws GameException;
+
+	
+
+	
+
+	
+
+	
 }
