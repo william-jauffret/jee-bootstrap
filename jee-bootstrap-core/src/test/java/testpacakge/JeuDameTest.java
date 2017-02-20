@@ -72,10 +72,6 @@ public class JeuDameTest {
     	assertThat(game.getCell(8, 8)).isEqualTo(ColorChip.BLACK);
     	assertThat(game.getCell(8, 9)).isEqualTo(ColorChip.NONE);
 
-
-
-    	
-
     }
     
     
@@ -114,4 +110,14 @@ public class JeuDameTest {
     	assertThat(game.getCell(7, 7)).isNull();
 	
 	}
+	@Test
+	public void itCantplayOutsideBoard() throws Exception{
+		try{
+			game.play(0, 0, "ArRIGHT");
+			fail("Impossible to play out the board");
+		}catch(Exception e)
+		{}
+		
+	}
+	
 }

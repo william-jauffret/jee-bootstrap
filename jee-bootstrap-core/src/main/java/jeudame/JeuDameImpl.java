@@ -191,7 +191,7 @@ public class JeuDameImpl implements JeuDameGame {
 	@Override
 	public void eatChip(int ord, int abs, Direction direction, ColorChip player) {
 
-		int ordEatenChip = newOrd(ord, direction,color);
+		int ordEatenChip = newOrd(ord, direction,player);
 		int absEatenCHip = newAbs(abs, direction);
 		int newOrd = 2 * ordEatenChip;
 		int newAbs = 2 * absEatenCHip;
@@ -223,30 +223,30 @@ public class JeuDameImpl implements JeuDameGame {
 	}
 
 	@Override
-	public boolean eatMoreThanOnce(int abs, int ord, ColorChip color) {
+	public boolean eatMoreThanOnce(int abs, int ord, ColorChip player) {
 
-		ColorChip ChipAvD = getCell(newAbs(abs, Direction.AvRIGHT), newOrd(ord, Direction.AvRIGHT, color));
-		ColorChip ChipArD = getCell(newAbs(abs, Direction.ArRIGHT), newOrd(ord, Direction.ArRIGHT,color));
-		ColorChip ChipAvG = getCell(newAbs(abs, Direction.AvLEFT), newOrd(ord, Direction.AvLEFT,color));
-		ColorChip ChipArG = getCell(newAbs(abs, Direction.ArLEFT), newOrd(ord, Direction.ArLEFT,color));
+		ColorChip ChipAvD = getCell(newAbs(abs, Direction.AvRIGHT), newOrd(ord, Direction.AvRIGHT, player));
+		ColorChip ChipArD = getCell(newAbs(abs, Direction.ArRIGHT), newOrd(ord, Direction.ArRIGHT,player));
+		ColorChip ChipAvG = getCell(newAbs(abs, Direction.AvLEFT), newOrd(ord, Direction.AvLEFT,player));
+		ColorChip ChipArG = getCell(newAbs(abs, Direction.ArLEFT), newOrd(ord, Direction.ArLEFT,player));
 
-		if (ChipAvD != ColorChip.NONE && ChipAvD != color) {
-			if (getCell(2 * newAbs(abs, Direction.AvRIGHT), 2 * newOrd(ord, Direction.AvRIGHT,color)) == ColorChip.NONE) {
+		if (ChipAvD != ColorChip.NONE && ChipAvD != player) {
+			if (getCell(2 * newAbs(abs, Direction.AvRIGHT), 2 * newOrd(ord, Direction.AvRIGHT,player)) == ColorChip.NONE) {
 				return true;
 			}
 		}
-		if (ChipAvG != ColorChip.NONE && ChipAvG != color) {
-			if (getCell(2 * newAbs(abs, Direction.AvLEFT), 2 * newOrd(ord, Direction.AvLEFT,color)) == ColorChip.NONE) {
+		if (ChipAvG != ColorChip.NONE && ChipAvG != player) {
+			if (getCell(2 * newAbs(abs, Direction.AvLEFT), 2 * newOrd(ord, Direction.AvLEFT,player)) == ColorChip.NONE) {
 				return true;
 			}
 		}
-		if (ChipArD != ColorChip.NONE && ChipArD != color) {
-			if (getCell(2 * newAbs(abs, Direction.ArRIGHT), 2 * newOrd(ord, Direction.ArRIGHT,color)) == ColorChip.NONE) {
+		if (ChipArD != ColorChip.NONE && ChipArD != player) {
+			if (getCell(2 * newAbs(abs, Direction.ArRIGHT), 2 * newOrd(ord, Direction.ArRIGHT,player)) == ColorChip.NONE) {
 				return true;
 			}
 		}
-		if (ChipArG != ColorChip.NONE && ChipArG != color) {
-			if (getCell(2 * newAbs(abs, Direction.ArLEFT), 2 * newOrd(ord, Direction.ArLEFT,color)) == ColorChip.NONE) {
+		if (ChipArG != ColorChip.NONE && ChipArG != player) {
+			if (getCell(2 * newAbs(abs, Direction.ArLEFT), 2 * newOrd(ord, Direction.ArLEFT,player)) == ColorChip.NONE) {
 				return true;
 			}
 		}
