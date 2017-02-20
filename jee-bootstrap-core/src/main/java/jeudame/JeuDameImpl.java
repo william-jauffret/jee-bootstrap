@@ -43,49 +43,47 @@ public class JeuDameImpl implements JeuDameGame {
 	}
 	
 	@Override
-	public void play(Pion pion,Direction direction) throws GameException {
-		if(getCell(pion.getX(),pion.getY()) == ColorChip.NONE) throw new GameException(NO_CHIP_ON_CELL_ERROR) ;
-		if(getCell(pion.getX(),pion.getY()) != player) throw new GameException(NOT_PLAYERS_CHIP_ERROR) ;
-		
-		Direction dir = direction;
-		int newAbs = newAbs(pion.getX(), dir);
-		int newOrd = newOrd(pion.getY(), dir);
-		
-		if (newAbs > BOARD_SIZE - 1 || newAbs < 0){
-			throw new GameException(OUTSIDE_OF_BOARD_ERROR);
-		}
-		if (newOrd> BOARD_SIZE - 1 || newOrd < 0){
-			throw new GameException(OUTSIDE_OF_BOARD_ERROR);
-		}
-		
-		//Test
-		if(newAbs != pion.getX() && newOrd != pion.getY()){
-			if(getCell(newAbs,newOrd)== ColorChip.NONE){
-				if (dir == Direction.AvRIGHT || dir == Direction.AvLEFT){
-					board.get(pion.getX()).set(pion.getY(), ColorChip.NONE);
-					board.get(newOrd).set(newOrd, player);
-					player = nextPlayer(player);
-					System.out.println("Player " + player + " that's your turn");
-				}else{
-					System.out.println("Player : " + player.toString() +", you can't move backward");
+	public void play(int abs, int ord, String direction) throws GameException {
+		if(getCell(abs,ord) == ColorChip.NONE) System.out.println("There is no chip on the board") ;
+		else if(getCell(abs,ord) != player) System.out.println("That is not your chip, select a Chip "+ player) ;
+		else{
+			Direction dir = Direction.valueOf(direction);
+			int newAbs = newAbs(abs, dir);
+			int newOrd = newOrd(ord, dir, player);
+			if (newAbs > getSquareSize() - 1 || newAbs < 0){
+				throw new GameException(OUTSIDE_OF_BOARD_ERROR);
+			}
+			if (newOrd> getSquareSize() - 1 || newOrd < 0){
+				throw new GameException(OUTSIDE_OF_BOARD_ERROR);
+			}
+			//Test move
+			if(newAbs != abs && newOrd != ord){
+				if(getCell(newAbs,newOrd)== ColorChip.NONE){
+					if (dir == Direction.AvD || dir == Direction.ArLEFT){
+						board.get(ord).set(abs, ColorChip.NONE);
+						board.get(newOrd).set(newAbs, player);
+						player = changePlayer(player);
+						System.out.println("Player " + player + " that's your turn");
+					}else{
+						System.out.println("Player : " + player.toString() +", you can't move backward");
+					}
+				}
+				else if(getCell(newAbs,newOrd)== player){
+					System.out.println("Player : " + player.toString() +", one of your chips blocks your move" );
+				}
+				else
+				{
+					eatChip(abs,ord,dir,player);
 				}
 			}
-			else if(getCell(newAbs,newOrd)== player){
-				System.out.println("Player : " + player.toString() +", one of your chips blocks your move" );
-			}
-			else
-			{
-				eatChip(pion,dir);
-			}
+			
+			//après modifications des listes
+			List<ColorChip> ordList = board.get(ord);
+			List<ColorChip> newOrdList = board.get(newOrd);
+			if (ordList.size() > BOARD_SIZE || newOrdList.size() > BOARD_SIZE ) {
+	            throw new GameException(OUTSIDE_OF_BOARD_ERROR);
+	        }
 		}
-		
-		//après modifications des listes
-		List<ColorChip> absList = board.get(pion.getX());
-		List<ColorChip> newAbsList = board.get(newAbs);
-		if (absList.size() >= BOARD_SIZE || newAbsList.size() >= BOARD_SIZE ) {
-            throw new GameException(OUTSIDE_OF_BOARD_ERROR);
-        }
-		
 		
 	}
 
