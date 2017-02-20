@@ -29,9 +29,15 @@ public class JeuDameImpl implements JeuDameGame {
 		for (int i = 0; i < BOARD_SIZE; i++) {
             board.add(new ArrayList<ColorChip>(BOARD_SIZE));
             for (int j = 0; j < BOARD_SIZE; j++){
-            	if(i % 2 == j % 2 && i<4)board.get(i).add(ColorChip.WHITE);
-            	else if(i % 2 == j % 2 && i>5)board.get(i).add(ColorChip.BLACK);
-            	else board.get(i).add(ColorChip.NONE);
+            	if(i % 2 == j % 2 && i<4){
+            		board.get(i).add(ColorChip.WHITE);
+            	}
+            	else if(i % 2 == j % 2 && i>5){
+            		board.get(i).add(ColorChip.BLACK);
+            	}
+            	else{
+            		board.get(i).add(ColorChip.NONE);
+            	}
             } 
         }
 	}

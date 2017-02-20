@@ -7,6 +7,10 @@ public class Pion {
 	private ColorChip color;
 	private boolean isQueen = false;
 	
+	public Pion(int x,int y,ColorChip color){
+		
+	}
+	
 	public int getX() {
 		return x;
 	}
