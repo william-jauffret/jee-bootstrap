@@ -23,7 +23,7 @@ public class JeuDameTest {
     
     @Test 
     public void getRightCase() throws Exception{
-    	//game.play(ColorChip.BLACK, 0, 0);
+    	
     	// On test si la première rangé est bien placé un blanc puis rien puis un blanc ect 
     	assertThat(game.getCell(0, 0)).isEqualTo(ColorChip.WHITE);
     	assertThat(game.getCell(0, 1)).isEqualTo(ColorChip.NONE);
@@ -79,8 +79,39 @@ public class JeuDameTest {
     }
     
     
-    @Test
-    public void play() throws Exception{
+	@Test
+    public void testPlay() throws Exception{   	
+    	game.play(0, 0, "AvRIGHT");
+    	assertStart(game.getCell(1,1)).isEqualTo(ColorChip.WHITE);
+    	assertThat(game.getCell(0,0)).isNull();
     	
-    }
+    	game.play(8, 8, "AvRIGHT");
+    	assertStart(game.getCell(7,7)).isEqualTo(ColorChip.BLACK);
+    	assertThat(game.getCell(8,8)).isNull();
+    	
+    	game.play(1, 1, "AvLEFT");
+    	assertStart(game.getCell(0,2)).isEqualTo(ColorChip.WHITE);
+    	assertThat(game.getCell(1,1)).isNull();
+    	
+    	game.play(7, 7, "AvLEFT");
+    	assertStart(game.getCell(8,6)).isEqualTo(ColorChip.BLACK);
+    	assertThat(game.getCell(7, 7)).isNull();
+    	
+    	game.play(0, 2, "ArRIGHT");
+    	assertStart(game.getCell(1,1)).isEqualTo(ColorChip.WHITE);
+    	assertThat(game.getCell(0,2)).isNull();
+    	
+    	game.play(8, 6, "ArRIGHT");
+    	assertStart(game.getCell(7,7)).isEqualTo(ColorChip.BLACK);
+    	assertThat(game.getCell(8,6)).isNull();
+    	
+    	game.play(1, 1, "ArLEFT");
+    	assertStart(game.getCell(0,0)).isEqualTo(ColorChip.WHITE);
+    	assertThat(game.getCell(1, 1)).isNull();
+    	
+    	game.play(7, 7, "ArLEFT");
+    	assertStart(game.getCell(8,8)).isEqualTo(ColorChip.BLACK);
+    	assertThat(game.getCell(7, 7)).isNull();
+	
+	}
 }
