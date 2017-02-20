@@ -106,7 +106,7 @@ public class JeuDameTest {
     	assertThat(game.getCell(1, 1)).isNull();
     	
     	game.play(7, 7, "ArLEFT");
-    	assertStart(game.getCell(8,8)).isEqualTo(ColorChip.BLACK);
+    	assertThat(game.getCell(8,8)).isEqualTo(ColorChip.BLACK);
     	assertThat(game.getCell(7, 7)).isNull();
 	
 	}
@@ -118,6 +118,14 @@ public class JeuDameTest {
 		}catch(Exception e)
 		{}
 		
+	}
+	@Test
+	public void testCheepHasBeenEat() throws Exception{
+		game.play(1, 3, "AvRIGHT");
+		game.play(4, 6, "AvRIGHT");
+		game.play(2, 4, "AvRIGHT");
+		assertThat(game.getCell(3,5)).isEqualTo(ColorChip.NONE); //Le pion noir à été mangé
+		assertThat(game.getCell(4,6)).isEqualTo(ColorChip.WHITE);
 	}
 	
 }
