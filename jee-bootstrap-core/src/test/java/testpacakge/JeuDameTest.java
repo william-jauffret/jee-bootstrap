@@ -77,4 +77,10 @@ public class JeuDameTest {
     	
 
     }
+    
+    
+    @Test
+    public void play() throws Exception{
+    	
+    }
 }
