@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	$('#userName').blur(function() {
+	$('#button').click(function() {
 		$.ajax({
-			url : 'GameJDDServlet',
+			url : 'game',
 			data : {
 				userName : $('#userName').val()
 			},

@@ -18,9 +18,7 @@ import org.dmetzler.isen.puissance4.web.Puissance4Bean;
 @WebServlet("/game")
 public class GameJDDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	@Inject
-    GameJDDBean game;
+
     /**
      * @see HttpServlet#HttpServlet()
      */

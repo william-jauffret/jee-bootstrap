@@ -15,11 +15,12 @@
 
 	<form>
 		Enter Your Name: <input type="text" id="userName" />
+		<button type="button" id="button">Envoyer</button>
 	</form>
 	<br>
 	<br>
 
-	<strong>Hi</strong>:
+	<strong>Hi</strong>
 	<div id="ajaxGetUserServletResponse"></div>
 </body>
 </html>
