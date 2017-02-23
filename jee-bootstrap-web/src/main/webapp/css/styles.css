@@ -1,0 +1,23 @@
+.WHITE{
+    background: white;
+    width: 50px;
+    height: 50px;
+
+
+}
+
+.BLACK{
+    background: black;
+    width: 50px;
+    height: 50px;
+
+}
+
+.BLACK,.WHITE,.NONE{
+    display: inline-block;
+}
+
+.NONE{
+    width: 50px;
+    height: 50px;
+}

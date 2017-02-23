@@ -9,6 +9,7 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"
 	type="text/javascript"></script>
+	<link rel="stylesheet" href="css/styles.css">
 <script src="script/site.js" type="text/javascript"></script>
 </head>
 <body>
@@ -20,6 +21,8 @@
 	<br>
 
 	<strong>Hi</strong>
-	<div id="ajaxGetUserServletResponse"></div>
+	<div id="board">
+
+	</div>
 </body>
 </html>

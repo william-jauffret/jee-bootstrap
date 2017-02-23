@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import jeudame.JeuDameImpl;
 import org.apache.commons.lang.StringUtils;
 
@@ -19,6 +21,8 @@ import org.apache.commons.lang.StringUtils;
 public class GameJDDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public JeuDameImpl myGame = new JeuDameImpl() ;
+    final GsonBuilder builder = new GsonBuilder();
+    final Gson gson = builder.create();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -33,9 +37,11 @@ public class GameJDDServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	    myGame.showBoardState();
+
+	    String boardJson = gson.toJson(myGame.getBoard());
+	    System.out.println(boardJson);
 		response.setContentType("text/plain");
-		response.getWriter().write("caca");
+		response.getWriter().write(boardJson);
 	}
 
 	/**
