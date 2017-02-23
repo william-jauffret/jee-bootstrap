@@ -71,8 +71,30 @@ $(document).ready(function() {
         document.getElementById("choiceToMake").appendChild(choiceRight);
     });
 
+    $(document).on("click",".PionBlack",function(){
+        $('.PionBlack').html("");
+        $('#choiceToMake').html("");
+        var pionId = $(this).attr("id");
+        selectedPionId = pionId;
+        var choiceLeft = document.createElement('button');
+        choiceLeft.id = 'choiceLeft';
+        choiceLeft.className = "choice-left";
+        document.getElementById("choiceToMake").appendChild(choiceLeft);
+
+        var choiceRight = document.createElement('button');
+        choiceRight.id = "choiceRight";
+        choiceRight.className = "choice-right";
+        document.getElementById("choiceToMake").appendChild(choiceRight);
+    });
+
     $(document).on("hover","#choiceToMake",function(){
-        console.log(selectedPionId);
+        $('#'+selectedPionId).toggleClass( "selected-pion" )
+    });
+    $(document).on("click",".choice-right",function(){
+        $('#'+selectedPionId).toggleClass( "selected-pion" )
+    });
+
+    $(document).on("click",".choice-left",function(){
         $('#'+selectedPionId).toggleClass( "selected-pion" )
     });
 

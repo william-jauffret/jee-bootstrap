@@ -116,6 +116,8 @@
     -webkit-transition: width 0.5s, height 0.5s, background-color 2s, -webkit-transform 0.5s;
     transition: width 0.5s, height 0.5s, background-color 2s, transform 0.5s;
 
+
+
 }
 
 .choice-left{
@@ -160,7 +162,6 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: red;
     position: absolute;
     margin-left: auto;
     left: 0;
@@ -173,3 +174,8 @@
     margin-bottom: auto;
     bottom: 6px;
 }
+#button:focus {
+    outline:none;
+    box-shadow:none;
+}
+
