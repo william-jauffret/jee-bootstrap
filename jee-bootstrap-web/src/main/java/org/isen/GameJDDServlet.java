@@ -39,7 +39,6 @@ public class GameJDDServlet extends HttpServlet {
 
 
 	    String boardJson = gson.toJson(myGame.getBoard());
-	    System.out.println(boardJson);
 		response.setContentType("text/plain");
 		response.getWriter().write(boardJson);
 	}

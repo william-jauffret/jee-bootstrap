@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var alreadyInit = false;
     var selectedPionId = "";
-    $('#button').click(function() {
+    $('#button1').click(function() {
         $.ajax({
             url : 'game',
             type : 'POST',
@@ -90,12 +90,28 @@ $(document).ready(function() {
     $(document).on("hover","#choiceToMake",function(){
         $('#'+selectedPionId).toggleClass( "selected-pion" )
     });
-    $(document).on("click",".choice-right",function(){
-        $('#'+selectedPionId).toggleClass( "selected-pion" )
+    $(document).on("click","#choiceRight",function(){
+        $.ajax({
+            url : 'clicright',
+            type : 'POST',
+            data: {
+                pion: selectedPionId
+            },
+            success : function(responseText) {
+
+                console.log(responseText);
+
+
+            },
+            error: function (jqXHR, textStatus, err) {
+                console.log(jqXHR);
+                console.log(textStatus);
+                console.log(err)
+            }
+        })
     });
 
     $(document).on("click",".choice-left",function(){
-        $('#'+selectedPionId).toggleClass( "selected-pion" )
     });
 
 

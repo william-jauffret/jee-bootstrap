@@ -14,7 +14,7 @@
 <body>
 
 
-<button type="button" id="button">Init and dispay Board</button>
+<button type="button" id="button1">Init and dispay Board</button>
 
 <br>
 <br>
