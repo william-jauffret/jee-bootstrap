@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import jeudame.ColorChip;
+import jeudame.Direction;
 import jeudame.JeuDameImpl;
 import jeudame.Pion;
 import org.apache.commons.lang.StringUtils;
@@ -44,6 +45,7 @@ public class ClicOnPionServlet extends HttpServlet {
         int rowNumber = Integer.parseInt(pion.substring(4,5));
         int boxNumber = Integer.parseInt(pion.substring(5,6));
         Pion pionToPlay = new Pion(rowNumber,boxNumber, color);
+        myGame.playWithPion(pionToPlay, Direction.AvLEFT);
         response.setContentType("text/plain");
         response.getWriter().write(pion);
     }

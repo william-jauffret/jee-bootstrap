@@ -52,6 +52,14 @@ public class JeuDameImpl implements JeuDameGame {
         }
     }
 
+    public void actualisePions(List<List<Pion>> newPions){
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+
+            }
+        }
+    }
+
 
 
 	@Override
@@ -96,6 +104,12 @@ public class JeuDameImpl implements JeuDameGame {
 
 	}
 	public void playWithPion(Pion pion, Direction direction){
+        Pion oldPion = getPionAt(pion.getX(),pion.getY());
+        pion.setX(newAbs(pion.getX(),Direction.AvLEFT));
+        pion.setY(pion.getY());
+        List<Pion> row = pions.get(oldPion.getX());
+        row.set(oldPion.getY(),pion);
+        pions.set(oldPion.getX(),row);
 
     }
 
