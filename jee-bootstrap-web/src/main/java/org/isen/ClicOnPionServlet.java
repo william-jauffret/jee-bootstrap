@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import jeudame.ColorChip;
 import jeudame.JeuDameImpl;
+import jeudame.Pion;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -22,6 +24,7 @@ public class ClicOnPionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     final GsonBuilder builder = new GsonBuilder();
     final Gson gson = builder.create();
+    JeuDameImpl myGame = GameJDDServlet.getMyGame();
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,10 +40,10 @@ public class ClicOnPionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String pion =request.getParameter("pion");
-        String x = pion.substring(4,5);
-        String y = pion.substring(5,6);
-        System.out.println(x);
-        System.out.println(y);
+        String color = request.getParameter("color");
+        int rowNumber = Integer.parseInt(pion.substring(4,5));
+        int boxNumber = Integer.parseInt(pion.substring(5,6));
+        Pion pionToPlay = new Pion(rowNumber,boxNumber, color);
         response.setContentType("text/plain");
         response.getWriter().write(pion);
     }

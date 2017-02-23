@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var alreadyInit = false;
     var selectedPionId = "";
+    var selectedPionColor="";
     $('#button1').click(function() {
         $.ajax({
             url : 'game',
@@ -60,6 +61,7 @@ $(document).ready(function() {
         $('#choiceToMake').html("");
         var pionId = $(this).attr("id");
         selectedPionId = pionId;
+        selectedPionColor = "WHITE"
         var choiceLeft = document.createElement('button');
         choiceLeft.id = 'choiceLeft';
         choiceLeft.className = "choice-left";
@@ -76,6 +78,7 @@ $(document).ready(function() {
         $('#choiceToMake').html("");
         var pionId = $(this).attr("id");
         selectedPionId = pionId;
+        selectedPionColor = "BLACK"
         var choiceLeft = document.createElement('button');
         choiceLeft.id = 'choiceLeft';
         choiceLeft.className = "choice-left";
@@ -95,7 +98,8 @@ $(document).ready(function() {
             url : 'clicright',
             type : 'POST',
             data: {
-                pion: selectedPionId
+                pion: selectedPionId,
+                color : selectedPionColor
             },
             success : function(responseText) {
 

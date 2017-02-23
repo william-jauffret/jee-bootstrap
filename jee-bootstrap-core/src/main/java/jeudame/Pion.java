@@ -6,11 +6,18 @@ public class Pion {
 	private int y = 0;
 	private ColorChip color;
 	private boolean isQueen = false;
-	
-	public Pion(int x,int y,ColorChip color){
-		
+
+	public Pion(int x, int y, String color) {
+		this.x = x;
+		this.y = y;
+		if(color.equals("WHITE")){
+			this.color = ColorChip.WHITE;
+		} else {
+			this.color = ColorChip.BLACK;
+		}
+
 	}
-	
+
 	public int getX() {
 		return x;
 	}

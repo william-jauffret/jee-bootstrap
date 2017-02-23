@@ -29,9 +29,9 @@ public class JeuDameImpl implements JeuDameGame {
 			pions.add(new ArrayList<Pion>(BOARD_SIZE));
 			for (int j = 0; j < BOARD_SIZE; j++) {
                 if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0) && i<=3) {
-					pions.get(i).add(new Pion(i,j,ColorChip.WHITE));
+					pions.get(i).add(new Pion(i,j,"WHITE"));
 				} else if(i>=6) {
-                    pions.get(i).add(new Pion(i,j,ColorChip.BLACK));
+                    pions.get(i).add(new Pion(i,j,"BLACK"));
                 }
 			}
 		}
@@ -95,6 +95,9 @@ public class JeuDameImpl implements JeuDameGame {
 		}
 
 	}
+	public void playWithPion(Pion pion, Direction direction){
+
+    }
 
 	private int getBoardSize() {
 		// TODO Auto-generated method stub
@@ -111,6 +114,10 @@ public class JeuDameImpl implements JeuDameGame {
 		 */
 		return board.get(abs).get(ord);
 
+	}
+
+	public Pion getPionAt(int rowNumber,int boxNumer){
+		return pions.get(rowNumber).get(boxNumer);
 	}
 
 	@Override

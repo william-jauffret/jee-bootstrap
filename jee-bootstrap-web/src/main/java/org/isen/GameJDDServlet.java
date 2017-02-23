@@ -20,7 +20,7 @@ import org.apache.commons.lang.StringUtils;
 @WebServlet("/game")
 public class GameJDDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public JeuDameImpl myGame = new JeuDameImpl() ;
+	public static JeuDameImpl myGame = new JeuDameImpl() ;
     final GsonBuilder builder = new GsonBuilder();
     final Gson gson = builder.create();
 
@@ -69,4 +69,11 @@ public class GameJDDServlet extends HttpServlet {
 	                + request.getServletPath() + "/" );
 	    }
 
+	public static JeuDameImpl getMyGame() {
+		return myGame;
+	}
+
+	public void setMyGame(JeuDameImpl myGame) {
+		this.myGame = myGame;
+	}
 }
