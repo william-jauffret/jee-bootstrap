@@ -34,9 +34,7 @@ $(document).ready(function() {
                                 pion.className = "PionBlack";
                                 box.appendChild(pion);
                             }
-                            /*if(box.className === 'BLACK'){
 
-                            }*/
                         }
 
                     }
@@ -102,9 +100,10 @@ $(document).ready(function() {
                 color : selectedPionColor
             },
             success : function(responseText) {
-
-                console.log(responseText);
-
+                var parsedPions = JSON.parse(responseText);
+                parsedPions[0].forEach(function (pion) {
+                    console.log(pion);
+                })
 
             },
             error: function (jqXHR, textStatus, err) {

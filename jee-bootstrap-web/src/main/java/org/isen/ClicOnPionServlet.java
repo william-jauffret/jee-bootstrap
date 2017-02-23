@@ -46,8 +46,9 @@ public class ClicOnPionServlet extends HttpServlet {
         int boxNumber = Integer.parseInt(pion.substring(5,6));
         Pion pionToPlay = new Pion(rowNumber,boxNumber, color);
         myGame.playWithPion(pionToPlay, Direction.AvLEFT);
+        String newPions = gson.toJson(myGame.getPions());
         response.setContentType("text/plain");
-        response.getWriter().write(pion);
+        response.getWriter().write(newPions);
     }
 
     /**
