@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var alreadyInit = false;
+    var selectedPionId = "";
     $('#button').click(function() {
         $.ajax({
             url : 'game',
@@ -20,18 +21,17 @@ $(document).ready(function() {
                             var box = document.createElement('div');
                             box.id = 'box'+boxNumber;
                             box.className = parsed[rowNumber][boxNumber];
-                            document.getElementById('row'+rowNumber).appendChild(box)
-                            console.log(box.className)
+                            document.getElementById('row'+rowNumber).appendChild(box);
                             if(box.className ==="BLACK" && rowNumber <=3){
-                                var pion = document.createElement('div')
+                                var pion = document.createElement('div');
                                 pion.id = 'pion'+rowNumber+boxNumber;
-                                pion.className = "PionWhite"
-                                box.appendChild(pion)
+                                pion.className = "PionWhite";
+                                box.appendChild(pion);
                             } else if(box.className === "BLACK" && rowNumber>=6){
-                                var pion = document.createElement('div')
+                                var pion = document.createElement('div');
                                 pion.id = 'pion'+rowNumber+boxNumber;
-                                pion.className = "PionBlack"
-                                box.appendChild(pion)
+                                pion.className = "PionBlack";
+                                box.appendChild(pion);
                             }
                             /*if(box.className === 'BLACK'){
 
@@ -55,9 +55,28 @@ $(document).ready(function() {
         })
     });
 
-    $(document).on("click","#pion98",function(){
-        alert('Prout')
+    $(document).on("click",".PionWhite",function(){
+        $('.PionWhite').html("");
+        $('#choiceToMake').html("");
+        var pionId = $(this).attr("id");
+        selectedPionId = pionId;
+        var choiceLeft = document.createElement('button');
+        choiceLeft.id = 'choiceLeft';
+        choiceLeft.className = "choice-left";
+        document.getElementById("choiceToMake").appendChild(choiceLeft);
+
+        var choiceRight = document.createElement('button');
+        choiceRight.id = "choiceRight";
+        choiceRight.className = "choice-right";
+        document.getElementById("choiceToMake").appendChild(choiceRight);
     });
+
+    $(document).on("hover","#choiceToMake",function(){
+        console.log(selectedPionId);
+        $('#'+selectedPionId).toggleClass( "selected-pion" )
+    });
+
+
 
 
 

@@ -105,3 +105,71 @@
     bottom: 6px;
 
 }
+
+.choice-right{
+    height:100px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 30%;
+    background: url("https://maxcdn.icons8.com/iOS7/PNG/25/Arrows/right-25.png") no-repeat center;
+    -webkit-transition: width 0.5s, height 0.5s, background-color 2s, -webkit-transform 0.5s;
+    transition: width 0.5s, height 0.5s, background-color 2s, transform 0.5s;
+
+}
+
+.choice-left{
+    height:100px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 30%;
+    background: url("https://maxcdn.icons8.com/iOS7/PNG/25/Arrows/left-25.png") no-repeat center;
+    -webkit-transition: width 0.5s, height 0.5s, background-color 2s, -webkit-transform 0.5s;
+    transition: width 0.5s, height 0.5s, background-color 2s, transform 0.5s;
+
+}
+
+.choice-right:hover{
+    height:100px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 50%;
+    background: url("https://maxcdn.icons8.com/iOS7/PNG/25/Arrows/right-25.png") no-repeat center;
+    background-color: aqua;
+
+}
+
+.choice-left:hover{
+    height:100px;
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background: url("https://maxcdn.icons8.com/iOS7/PNG/25/Arrows/left-25.png") no-repeat center;
+    background-color: aqua;
+    border-radius: 50%;
+
+}
+
+#choiceToMake{
+    width: 300px;
+}
+
+.selected-pion{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: red;
+    position: absolute;
+    margin-left: auto;
+    left: 0;
+    text-align: center;
+    margin-right: auto;
+    right: 0;
+    margin-top: auto;
+    top: 6px;
+    cursor: pointer;
+    margin-bottom: auto;
+    bottom: 6px;
+}

@@ -20,7 +20,13 @@
 <br>
 
 <strong>Board</strong>
+
+
 <div id="board">
+
+</div>
+
+<div id="choiceToMake">
 
 </div>
 </body>
