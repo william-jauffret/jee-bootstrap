@@ -21,19 +21,18 @@ public class JeuDameImpl implements JeuDameGame {
 	public JeuDameImpl() {
 		// TODO Auto-generated constructor stub
 		initBoard();
+		initPions();
 	}
 
 	public void initPions() {
 		for (int i = 0; i < BOARD_SIZE; i++) {
-			board.add(new ArrayList<ColorChip>(BOARD_SIZE));
+			pions.add(new ArrayList<Pion>(BOARD_SIZE));
 			for (int j = 0; j < BOARD_SIZE; j++) {
-				if (i % 2 == j % 2 && i < 4) {
-					board.get(i).add(ColorChip.WHITE);
-				} else if (i % 2 == j % 2 && i > 5) {
-					board.get(i).add(ColorChip.BLACK);
-				} else {
-					board.get(i).add(ColorChip.NONE);
-				}
+                if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0) && i<=3) {
+					pions.get(i).add(new Pion(i,j,ColorChip.WHITE));
+				} else if(i>=6) {
+                    pions.get(i).add(new Pion(i,j,ColorChip.BLACK));
+                }
 			}
 		}
 	}
@@ -44,10 +43,10 @@ public class JeuDameImpl implements JeuDameGame {
             for (int j = 0; j < BOARD_SIZE; j++) {
                 if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0)) {
                     // addBox(Color.BLACK);
-                    board.get(i).add(ColorChip.BLACK);
+                    board.get(i).add(ColorChip.WHITE);
                 } else {
                     //  addBox(Color.WHITE);
-                    board.get(i).add(ColorChip.WHITE);
+                    board.get(i).add(ColorChip.BLACK);
                 }
             }
         }
@@ -312,5 +311,13 @@ public class JeuDameImpl implements JeuDameGame {
 
 	public List<List<ColorChip>> getBoard(){
 	    return board;
+    }
+
+    public List<List<Pion>> getPions() {
+        return pions;
+    }
+
+    public void setPions(List<List<Pion>> pions) {
+        this.pions = pions;
     }
 }
