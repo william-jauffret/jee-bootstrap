@@ -13,10 +13,9 @@
 </head>
 <body>
 
-	<form>
-		Enter Your Name: <input type="text" id="userName" />
-		<button type="button" id="button">Envoyer</button>
-	</form>
+
+		<button type="button" id="button">Init and dispay Board</button>
+
 	<br>
 	<br>
 

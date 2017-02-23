@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+import jeudame.JeuDameImpl;
 import org.apache.commons.lang.StringUtils;
-import org.dmetzler.isen.puissance4.web.Inject;
-import org.dmetzler.isen.puissance4.web.Puissance4Bean;
 
 /**
  * Servlet implementation class GameJDDServlet
@@ -19,6 +18,7 @@ import org.dmetzler.isen.puissance4.web.Puissance4Bean;
 @WebServlet("/game")
 public class GameJDDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public JeuDameImpl myGame = new JeuDameImpl() ;
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,15 +32,10 @@ public class GameJDDServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userName = request.getParameter("userName").trim();
-		if(userName == null || "".equals(userName)){
-			userName = "Guest";
-		}
-		
-		String greetings = "Hello " + userName;
-		
+
+	    myGame.showBoardState();
 		response.setContentType("text/plain");
-		response.getWriter().write(greetings);
+		response.getWriter().write("caca");
 	}
 
 	/**
@@ -66,7 +61,7 @@ public class GameJDDServlet extends HttpServlet {
 	 private void redirectToGameRoot(HttpServletResponse response,
 	            HttpServletRequest request) throws IOException {
 	        response.sendRedirect(request.getContextPath()
-	                + request.getServletPath() + "/" + game.getToken());
+	                + request.getServletPath() + "/" );
 	    }
 
 }

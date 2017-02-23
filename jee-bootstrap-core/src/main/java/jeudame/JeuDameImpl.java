@@ -3,6 +3,8 @@ package jeudame;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class JeuDameImpl implements JeuDameGame {
 
@@ -15,6 +17,8 @@ public class JeuDameImpl implements JeuDameGame {
 	public static final String NO_PLAYER_WIN_ERROR = "No winner";
 	ColorChip player = ColorChip.WHITE;
 	List<List<ColorChip>> board = new ArrayList<>(BOARD_SIZE);
+	final GsonBuilder builder = new GsonBuilder();
+    final Gson gson = builder.create();
 
 	public JeuDameImpl() {
 		// TODO Auto-generated constructor stub
@@ -285,8 +289,9 @@ public class JeuDameImpl implements JeuDameGame {
 	public void showBoardState() {
 		for (int i = 9; i >= 0; i--) {
 			for (int j = 0; j < BOARD_SIZE; j++) {
-				System.out.print(board.get(i).get(j) + " ");
+				System.out.print(board.get(i).get(j)+" " );
 			}
+			System.out.println("  ");
 		}
 	}
 }
