@@ -15,6 +15,7 @@ public class JeuDameImpl implements JeuDameGame {
 	public static final String NO_PLAYER_WIN_ERROR = "No winner";
 	ColorChip player = ColorChip.WHITE;
 	List<List<ColorChip>> board = new ArrayList<>(BOARD_SIZE);
+    List<List<Pion>> pions = new ArrayList<>(BOARD_SIZE);
 
 
 	public JeuDameImpl() {
@@ -22,7 +23,7 @@ public class JeuDameImpl implements JeuDameGame {
 		initBoard();
 	}
 
-	public void initBoard() {
+	public void initPions() {
 		for (int i = 0; i < BOARD_SIZE; i++) {
 			board.add(new ArrayList<ColorChip>(BOARD_SIZE));
 			for (int j = 0; j < BOARD_SIZE; j++) {
@@ -36,6 +37,23 @@ public class JeuDameImpl implements JeuDameGame {
 			}
 		}
 	}
+
+	public void initBoard(){
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            board.add(new ArrayList<ColorChip>(BOARD_SIZE));
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if ((j % 2 == 0 && i % 2 == 0) || (j % 2 != 0 && i % 2 != 0)) {
+                    // addBox(Color.BLACK);
+                    board.get(i).add(ColorChip.BLACK);
+                } else {
+                    //  addBox(Color.WHITE);
+                    board.get(i).add(ColorChip.WHITE);
+                }
+            }
+        }
+    }
+
+
 
 	@Override
 	public void play(int abs, int ord, String direction) throws GameException {

@@ -24,7 +24,6 @@ $(document).ready(function() {
 
                 }
 
-                //$('#board').text(parsed);
 			}
 		});
 	});
