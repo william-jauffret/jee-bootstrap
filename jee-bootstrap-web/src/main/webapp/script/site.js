@@ -20,7 +20,7 @@ $(document).ready(function() {
                     for(rowNumber=0;rowNumber<=9;rowNumber++){
                         for(boxNumber=0;boxNumber<=9;boxNumber++){
                             var box = document.createElement('div');
-                            box.id = 'box'+boxNumber;
+                            box.id = 'box'+rowNumber+boxNumber;
                             box.className = parsed[rowNumber][boxNumber];
                             document.getElementById('row'+rowNumber).appendChild(box);
                             if(box.className ==="BLACK" && rowNumber <=3){
@@ -101,9 +101,16 @@ $(document).ready(function() {
             },
             success : function(responseText) {
                 var parsedPions = JSON.parse(responseText);
-                parsedPions[0].forEach(function (pion) {
-                    console.log(pion);
-                })
+                console.log(responseText)
+                for(rowNumber=0;rowNumber<=9;rowNumber++){
+                    parsedPions[rowNumber].forEach(function (pionIn) {
+                        var pion = document.createElement('div');
+                        pion.id = 'pion'+pionIn.x+pionIn.y;
+                        pion.className = "PionBlack";
+                        $('#box'+pionIn.x+pionIn.y).html(pion);
+                    })
+                }
+
 
             },
             error: function (jqXHR, textStatus, err) {
